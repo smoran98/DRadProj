@@ -1,26 +1,30 @@
-package com.employeeDB;
+package com.geog.Controller;
 
 import java.util.ArrayList;
 import java.util.Map;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
+import com.geog.DAO.DAO;
+import com.geog.Model.Country;
 import com.mysql.jdbc.exceptions.jdbc4.CommunicationsException;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
 @ManagedBean
-public class ProductController {
+@SessionScoped
+public class CountryController {
 	
-	ArrayList<Product> products;
+	ArrayList<Country> countries;
 	private DAO dao;
 
 
-	public ProductController() {
+	public CountryController() {
 		super();
-		products = new ArrayList<Product>();
+		countries = new ArrayList<Country>();
 		try {
 			dao = new DAO();
 		} catch (Exception e) {
@@ -28,26 +32,26 @@ public class ProductController {
 		}
 	}
 	
-	public ProductController(ArrayList<Product> products) {
+	public CountryController(ArrayList<Country> countries) {
 		super();
-		this.products = products;
+		this.countries = countries;
 	}
 
-	public ArrayList<Product> getProducts() {
-		return products;
+	public ArrayList<Country> getCountries() {
+		return countries;
 	}
 
-	public void setProducts(ArrayList<Product> products) {
-		this.products = products;
+	public void setCountries(ArrayList<Country> countries) {
+		this.countries = countries;
 	}
 	
 	
-	public void loadProducts() throws Exception {
-		products.clear();
+	public void loadCountries() throws Exception {
+		countries.clear();
 		if (dao != null) {
 			try {
-				products = dao.loadProducts();
-				System.out.println(products.size());
+				countries = dao.loadCountries();
+				System.out.println(countries.size());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -55,27 +59,27 @@ public class ProductController {
 	}
 	
 	
-	public String addProduct(Product product) {
-		if (dao != null) {
-			try {
-				dao.addProduct(product);
-				return "index";
-			} catch (MySQLIntegrityConstraintViolationException e) {
-				FacesMessage message = new FacesMessage("Error: Product ID " + product.getProductID() + " already exists");
-				FacesContext.getCurrentInstance().addMessage(null, message);
-				return null;
-			} catch (CommunicationsException e) {
-				FacesMessage message = new FacesMessage("Error: Cannot connect to Database");
-				FacesContext.getCurrentInstance().addMessage(null, message);
-				return null;
-			} catch (Exception e) {
-				FacesMessage message = new FacesMessage("Error while trying to insert Product " + product.getProductID());
-				FacesContext.getCurrentInstance().addMessage(null, message);
-				return null;
-			}
-		}
-		return null;
-	}
+//	public String addProduct(Country country) {
+//		if (dao != null) {
+//			try {
+//				dao.addProduct(product);
+//				return "index";
+//			} catch (MySQLIntegrityConstraintViolationException e) {
+//				FacesMessage message = new FacesMessage("Error: Product ID " + product.getProductID() + " already exists");
+//				FacesContext.getCurrentInstance().addMessage(null, message);
+//				return null;
+//			} catch (CommunicationsException e) {
+//				FacesMessage message = new FacesMessage("Error: Cannot connect to Database");
+//				FacesContext.getCurrentInstance().addMessage(null, message);
+//				return null;
+//			} catch (Exception e) {
+//				FacesMessage message = new FacesMessage("Error while trying to insert Product " + product.getProductID());
+//				FacesContext.getCurrentInstance().addMessage(null, message);
+//				return null;
+//			}
+//		}
+//		return null;
+//	}
 
 
 }

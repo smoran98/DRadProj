@@ -22,12 +22,12 @@ public class DAO {
 	 * ====================================================================================================== */
 	public DAO() throws Exception {
 		Context context = new InitialContext();
-		String jndiName = "java:comp/env/jdbc/employeesdb14";
+		String jndiName = "java:comp/env/jdbc/geography";
 		mysqlDS = (DataSource) context.lookup(jndiName);
 	}
 	
 	
-	public ArrayList<Country> loadProducts() throws Exception {
+	public ArrayList<Country> loadCountries() throws Exception {
 		ArrayList<Country> countries = new ArrayList<Country>();
 		
 		Connection myConn = null;
@@ -46,12 +46,12 @@ public class DAO {
 		while (myRs.next()) {
 				
 			// retrieve data from result set row
-			String co_code = myRs.getString("descrip");
-			String co_name = myRs.getString("descrip");
-			String co_details = myRs.getString("descrip");
+			String co_code = myRs.getString("co_code");
+			String co_name = myRs.getString("co_name");
+			String co_details = myRs.getString("co_details");
 
-			// create new student object
-			Country country = new Country(prodid, desc);
+			// create new country object
+			Country country = new Country(co_code, co_name, co_details);
 
 			countries.add(country);
 		}	

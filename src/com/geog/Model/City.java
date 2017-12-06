@@ -12,7 +12,7 @@ public class City {
 	boolean isCoastal;
 	
 	
-	
+//	Constructor
 public City(String code, String name, int population, float areaKM, boolean isCoastal) {
 		super();
 		this.code = code;
@@ -22,10 +22,6 @@ public City(String code, String name, int population, float areaKM, boolean isCo
 		this.isCoastal = isCoastal;
 	}
 
-
-//	Constructor
-	public City() {
-	}
 
 
 //	Accessors and mutators	
