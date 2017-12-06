@@ -1,0 +1,74 @@
+package com.geog.Model;
+
+import javax.faces.bean.ManagedBean;
+
+@ManagedBean
+public class City {
+//	Instance variables
+	private String code;
+	private String name;
+	private int population;
+	private float areaKM;
+	boolean isCoastal;
+	
+	
+	
+public City(String code, String name, int population, float areaKM, boolean isCoastal) {
+		super();
+		this.code = code;
+		this.name = name;
+		this.population = population;
+		this.areaKM = areaKM;
+		this.isCoastal = isCoastal;
+	}
+
+
+//	Constructor
+	public City() {
+	}
+
+
+//	Accessors and mutators	
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getPopulation() {
+		return population;
+	}
+
+	public void setPopulation(int population) {
+		this.population = population;
+	}
+	
+	
+	public boolean isCoastal() {
+		return isCoastal;
+	}
+
+
+	public void setCoastal(boolean isCoastal) {
+		this.isCoastal = isCoastal;
+	}
+
+	public float getAreaKM() {
+		return areaKM;
+	}
+
+	public void setAreaKM(float areaKM) {
+		this.areaKM = areaKM;
+	}
+		
+} // class City
