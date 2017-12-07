@@ -1,0 +1,21 @@
+package com.geog.Model;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
+@ManagedBean
+@SessionScoped
+public class Region {
+//	Instance variables
+	private String code;
+	private String reg_code;
+	private String reg_name;
+	private String reg_details;
+
+	public Region() {
+		
+	}
+	
+	
+	
+} // class Region

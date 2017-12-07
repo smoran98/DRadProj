@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+<f:metadata>
+	<f:event type="preRenderView" listener="#{cityController.loadCities()}"/>
+</f:metadata>
+<h:head>
+	<title>List Cities</title>
+    <h:outputStylesheet library="css" name="style.css"  />
+</h:head>
+<h:body>
+	<h:messages styleClass="error"/>
+	<br/>
+	<h:button value="Add City" outcome="addCity"/>
+	<br/>	
+<h:dataTable value = "#{cityController.cities}" var = "city"
+   styleClass="table" 
+   headerClass="table-header"
+   rowClasses="table-odd-row,table-even-row">
+   
+   
+<!-- 	private String code;
+	private String name;
+	private int population;
+	private double areaKM;
+	String isCoastal; -->
+      
+   <h:column>    				
+      <f:facet name = "header">City Code</f:facet>    				
+      #{city.code}
+   </h:column>
+   
+   <h:column>
+      <f:facet name = "header">City Name</f:facet>
+      #{city.name}
+   </h:column>
+   
+   <h:column>
+      <f:facet name = "header">City Details</f:facet>
+      #{city.population}
+   </h:column>
+   
+         <f:facet name = "header">City AreaKM</f:facet>    				
+      #{city.areaKM}
+   </h:column>
+   
+   <h:column>
+      <f:facet name = "header">Is Coastal</f:facet>
+      #{city.isCoastal}
+   </h:column>
+   
+</h:dataTable>
+<h:link value="Home" outcome="index"/> 
+</h:body>
+</html>

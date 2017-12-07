@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Add country</title>
+</h:head>
+
+<h:body>
+	<h:messages globalOnly="true" style="color:red" />
+	<h2>Country Details</h2>
+	<h:form id="countryform">
+	    Country Code: <h:inputText value="#{country.code}"
+			label="Country Code" id="noCode">
+		</h:inputText>
+		<h:message class="error" for="noCode" style="color:red" />
+		<br /> 
+	    Country Name: <h:inputText value="#{country.name}" id="noName">
+
+		</h:inputText>
+		<h:message class="error" for="noName" style="color:red" />
+		<br />
+		Country Details: <h:inputText value="#{country.details}" />
+		<br />
+		<h:commandButton value="Add"
+			action="#{countryController.add(country)}"></h:commandButton>
+	</h:form>
+	<h:link value="home" outcome="index" />
+	<br />
+	<h:link value="back" outcome="countries" />
+
+</h:body>
+</html>

@@ -1,0 +1,53 @@
+package com.geog.Model;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
+@ManagedBean
+@SessionScoped
+public class Region {
+//	Instance variables
+	private String code;
+	private String reg_code;
+	private String reg_name;
+	private String reg_details;
+
+	public Region() {
+		
+	}
+	
+	public Region(String code, String reg_name, String reg_details) {
+		super();
+		this.code = code;
+		this.reg_name = reg_name;
+		this.reg_details = reg_details;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getName() {
+		return reg_name;
+	}
+
+	public void setName(String name) {
+		this.reg_name = name;
+	}
+
+	public String getDetails() {
+		return reg_details;
+	}
+
+	public void setDetails(String details) {
+		this.reg_details = details;
+	}
+	
+	
+	
+	
+} // class Region

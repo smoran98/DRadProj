@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+<f:metadata>
+	<f:event type="preRenderView" listener="#{countryController.loadCities()}"/>
+</f:metadata>
+<h:head>
+	<title>List Cities</title>
+    <h:outputStylesheet library="css" name="style.css"  />
+</h:head>
+<h:body>
+	<h:messages styleClass="error"/>
+	<br/>
+	<h:button value="Add City" outcome="addCity"/>
+	<br/>	
+<h:dataTable value = "#{cityController.countries}" var = "country"
+   styleClass="table" 
+   headerClass="table-header"
+   rowClasses="table-odd-row,table-even-row">
+
+   <h:column>    				
+      <f:facet name = "header">Country Code</f:facet>    				
+      #{country.code}
+   </h:column>
+   
+   <h:column>
+      <f:facet name = "header">Country Name</f:facet>
+      #{country.name}
+   </h:column>
+   
+   <h:column>
+      <f:facet name = "header">Country Details</f:facet>
+      #{country.details}
+   </h:column>
+</h:dataTable>
+<h:link value="Home" outcome="index"/> 
+</h:body>
+</html>
